@@ -9,10 +9,11 @@ void main() {
 
 class SmartAquaculture extends StatelessWidget {
   const SmartAquaculture({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'SmartAquaculture - Realtime Aquatic Enviroment Monitoring',
       debugShowCheckedModeBanner: false,
       theme: WebTheme.theme,
       initialRoute: '/login',
