@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/utils.dart';
+
 class WebTheme {
   static const lightTextTheme = TextTheme(
     // Display
@@ -32,7 +34,7 @@ class WebTheme {
       fontWeight: FontWeight.w400,
       fontFamily: "Inter",
     ),
-    
+
     // Body
     bodyLarge: TextStyle(
       fontSize: 16,
@@ -44,7 +46,7 @@ class WebTheme {
       fontWeight: FontWeight.w400,
       fontFamily: "Inter",
     ),
-    
+
     // Label
     labelLarge: TextStyle(
       fontSize: 14,
@@ -63,5 +65,27 @@ class WebTheme {
     brightness: Brightness.light,
     useMaterial3: true,
     textTheme: lightTextTheme,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: pBlue,
+          foregroundColor: white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(
+              color: grey30,
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 32,
+          )),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        foregroundColor: pBlue,
+      ),
+    ),
   );
 }
