@@ -67,52 +67,31 @@ class DashboardScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(height: space24),
+                      CustomSlider(),
+                      SizedBox(height: space24),
+                      Column(
+                        children: [
+                          NotificationCard.notification(
+                            title: "Water temperature over 30 degress",
+                            detail:
+                                "Aquatic enviroment temperature in warning region make shade or replace water with new cold water to prevent the fish from dying.",
+                            date: '13 Nov, 2024',
+                          ),
+                          SizedBox(height: space16),
+                          NotificationCard.diseasePrediction(
+                            title: "Water temperature over 30 degress",
+                            detail:
+                                "Aquatic enviroment temperature in warning region make shade or replace water with new cold water to prevent the fish from dying.",
+                            date: '13 Nov, 2024',
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DashboardHeader extends StatelessWidget {
-  const DashboardHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).width * 0.02,
-        vertical: 12,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text("Dashboard"),
-          Spacer(),
-          Row(
-            children: [
-              Text("Hello, Dagmawi Esayas"),
-              SizedBox(width: space12),
-              GestureDetector(
-                onTap: () {},
-                child: CircleAvatar(
-                  backgroundColor: pBlue.withAlpha((255 * 0.05).toInt()),
-                  child: Image(
-                    width: 32,
-                    height: 32,
-                    color: black,
-                    image: Svg('icons/Bell.svg'),
-                  ),
-                ),
-              ),
-            ],
           ),
         ],
       ),
