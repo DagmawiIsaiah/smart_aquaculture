@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 import '../utils/utils.dart';
 import '../widgets/widgets.dart';
@@ -66,6 +65,16 @@ class DashboardScreen extends StatelessWidget {
                             ),
                           ],
                         ),
+                      ),
+                      SizedBox(height: space24),
+                      Row(
+                        children: [
+                          Expanded(child: StatRangeCard()),
+                          SizedBox(width: space12),
+                          Expanded(child: StatRangeCard()),
+                          SizedBox(width: space12),
+                          Expanded(child: StatRangeCard()),
+                        ],
                       ),
                       SizedBox(height: space24),
                       CustomSlider(),
