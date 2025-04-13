@@ -3,10 +3,34 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';
+import '../api/smart_aquaculture_service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController usernameController;
+  late TextEditingController passwordController;
+  bool passwordInvisible = true;
+
+  @override
+  void initState() {
+    usernameController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +94,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.maxFinite,
                         child: TextField(
+                          controller: usernameController,
                           decoration: InputDecoration(
                             labelText: "Email",
                             labelStyle: Theme.of(context)
@@ -86,9 +111,15 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.maxFinite,
                         child: TextField(
+                          controller: passwordController,
+                          obscureText: passwordInvisible,
                           decoration: InputDecoration(
                             suffixIcon: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  passwordInvisible = !passwordInvisible;
+                                });
+                              },
                               child: Icon(
                                 Icons.visibility_off_outlined,
                                 color: black70,
@@ -114,7 +145,29 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.maxFinite,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            var response = await SmartAquacultureService()
+                                .login(usernameController.text,
+                                    passwordController.text);
+                            if (response) {
+                              Navigator.pushNamed(context, '/dashboard');
+                            } else {
+                              ScaffoldMessenger.of(context).showMaterialBanner(
+                                MaterialBanner(
+                                  content: Text("Invalid Credentials"),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        ScaffoldMessenger.of(context)
+                                            .hideCurrentMaterialBanner();
+                                      },
+                                      child: Text("OK"),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                          },
                           child: Text("Login"),
                         ),
                       ),
