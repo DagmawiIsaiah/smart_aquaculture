@@ -49,18 +49,16 @@ class UserCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: space8),
-          Expanded(
-            child: GestureDetector(
-              onTap: () {},
-              child: CircleAvatar(
-                backgroundColor: white,
-                child: Image(
-                  width: 32,
-                  height: 32,
-                  color: red,
-                  image: Svg('icons/SignOut.svg'),
-                ),
+          Spacer(),
+          GestureDetector(
+            onTap: () {},
+            child: CircleAvatar(
+              backgroundColor: white,
+              child: Image(
+                width: 32,
+                height: 32,
+                color: red,
+                image: Svg('icons/SignOut.svg'),
               ),
             ),
           ),

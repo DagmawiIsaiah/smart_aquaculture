@@ -57,6 +57,7 @@ class NotificationCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 32, horizontal: 24),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -110,6 +111,7 @@ class NotificationCard extends StatelessWidget {
           color: white,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [

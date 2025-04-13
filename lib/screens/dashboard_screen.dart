@@ -12,7 +12,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          // SideNavBar(),
+          SideNavBar(),
           Expanded(
             flex: 5,
             child: Column(
