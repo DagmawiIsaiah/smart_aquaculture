@@ -17,27 +17,28 @@ enum EnvStatusState {
 
 EnvStatusState getState({required int value, required StatusCardType type}) {
   if (type == StatusCardType.temperature) {
-    if (value >= 25 && value <= 30) {
+    if (value >= 24 && value <= 27) {
       return EnvStatusState.good;
-    } else if ((value > 30 && value <= 35) || (value >= 20 && value < 25)) {
-      return EnvStatusState.warning;
-    } else {
-      return EnvStatusState.critical;
-    }
-  }
-  if (type == StatusCardType.turbidity) {
-    if (value <= 300) {
-      return EnvStatusState.good;
-    } else if (value > 30 && value <= 500) {
+    } else if ((value > 27 && value <= 28) || (value >= 21 && value < 24)) {
       return EnvStatusState.warning;
     } else {
       return EnvStatusState.critical;
     }
   }
 
-  if (value == 7) {
+  if (type == StatusCardType.turbidity) {
+    if (value <= 2) {
+      return EnvStatusState.good;
+    } else if (value > 2 && value < 3) {
+      return EnvStatusState.warning;
+    } else {
+      return EnvStatusState.critical;
+    }
+  }
+
+  if (value >= 6.8 && value <= 7.5) {
     return EnvStatusState.good;
-  } else if (value == 6 || value == 8) {
+  } else if ((value < 6.8 && value > 6.5) || (value > 7.5 && value < 8)) {
     return EnvStatusState.warning;
   } else {
     return EnvStatusState.critical;
@@ -78,7 +79,7 @@ class StatusCard extends StatelessWidget {
   factory StatusCard.ph(int ph) {
     return StatusCard(
       value: ph.toString(),
-      label: "pH",
+      label: "PH",
       type: StatusCardType.ph,
       state: getState(value: ph, type: StatusCardType.ph),
     );

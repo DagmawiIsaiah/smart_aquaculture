@@ -10,11 +10,13 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: [
-          SideNavBar(),
-          NotificationView(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // SideNavBar(),
+            NotificationView(),
+          ],
+        ),
       ),
     );
   }

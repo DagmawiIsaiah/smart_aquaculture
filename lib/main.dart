@@ -16,7 +16,7 @@ class SmartAquaculture extends StatelessWidget {
       title: 'SmartAquaculture - Realtime Aquatic Enviroment Monitoring',
       debugShowCheckedModeBanner: false,
       theme: WebTheme.theme,
-      initialRoute: '/dashboard',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginScreen(),
         '/dashboard': (context) => const DashboardScreen(),
