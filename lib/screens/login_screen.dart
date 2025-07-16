@@ -137,11 +137,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: space12),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text("Forgot Password?"),
-                      ),
-                      SizedBox(height: space12),
                       SizedBox(
                         width: double.maxFinite,
                         child: ElevatedButton(
@@ -172,25 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: space32),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Center(
-                          child: RichText(
-                            text: TextSpan(
-                              text: "Don't have an account? ",
-                              children: [
-                                TextSpan(
-                                  text: "Sign Up",
-                                  style: TextStyle(
-                                    color: pBlue,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      
                     ],
                   ),
                 )
